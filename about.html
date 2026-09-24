@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - SACOM Analytics</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* MAIN CONTENT THEME VARIABLES (Excludes Navbar) */
+        :root {
+            --bg-main: #f8fafc;
+            --bg-card: #ffffff;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --border-color: #e2e8f0;
+            --accent-color: #0284c7;
+        }
+
+        [data-theme="dark"] {
+            --bg-main: #0f172a;
+            --bg-card: #1e293b;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --border-color: #334155;
+            --accent-color: #38bdf8;
+        }
+
+        /* Prevent horizontal scroll & apply dynamic theme to body/main page */
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-main) !important;
+            color: var(--text-primary) !important;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Desktop layout offset for fixed navbar */
+        .about-container {
+            padding-top: 130px; /* Offset fixed header on desktop */
+            padding-bottom: 60px;
+            max-width: 950px;
+            margin: 0 auto;
+            padding-left: 20px;
+            padding-right: 20px;
+            box-sizing: border-box;
+        }
+
+        .about-content-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .about-title {
+            color: var(--text-primary);
+            font-size: 2.2rem;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .title-underline {
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent-color);
+            margin-bottom: 25px;
+            border-radius: 2px;
+        }
+
+        .about-text {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        /* Base Executive & Layout Styles */
+        .exec-section {
+            max-width: 950px;
+            margin: 0 auto 80px auto;
+            padding: 0 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .exec-card {
+            background-color: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            padding: 35px;
+            display: flex;
+            gap: 35px;
+            align-items: flex-start;
+        }
+
+        .exec-avatar-wrapper {
+            flex-shrink: 0;
+        }
+
+        .exec-avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid var(--accent-color);
+            background-color: var(--bg-main);
+        }
+
+        .exec-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .exec-content {
+            flex-grow: 1;
+        }
+
+        /* THEME TOGGLE BUTTON STYLES */
+        .theme-toggle-btn {
+            background: transparent;
+            border: 1px solid #334155;
+            color: #ffffff;
+            padding: 8px 14px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 10px;
+        }
+
+        .theme-toggle-btn:hover {
+            border-color: #38bdf8;
+            color: #38bdf8;
+        }
+
+        /* MOBILE RESPONSIVE RULES (Screens <= 768px) */
+        @media screen and (max-width: 768px) {
+            .navbar {
+                padding: 10px 15px !important;
+                flex-direction: column !important;
+                gap: 12px !important;
+                position: relative !important;
+            }
+
+            .nav-links {
+                flex-wrap: wrap !important;
+                justify-content: center !important;
+                gap: 12px !important;
+                font-size: 0.85rem !important;
+            }
+
+            .about-container {
+                padding-top: 30px !important;
+                padding-left: 15px !important;
+                padding-right: 15px !important;
+            }
+
+            .about-content-card {
+                padding: 25px !important;
+            }
+
+            .exec-section {
+                padding: 0 15px !important;
+                margin-bottom: 40px !important;
+            }
+
+            .exec-card {
+                flex-direction: column !important;
+                align-items: center !important;
+                text-align: center !important;
+                padding: 20px !important;
+                gap: 20px !important;
+            }
+
+            .exec-avatar {
+                width: 130px !important;
+                height: 130px !important;
+            }
+
+            .exec-content ul {
+                text-align: left !important;
+                padding-left: 20px !important;
+            }
+        }
+    </style>
+</head>
+<body id="top">
+
+    <!-- NAVIGATION HEADER -->
+    <nav class="navbar" style="position: fixed; top: 0; width: 100%; background-color: rgba(15, 23, 42, 0.95); z-index: 1000;">
+        <a href="index.html" class="logo">
+            <img src="SACOM1.png" alt="SACOM Analytics Logo" class="logo-img">
+        </a>
+        <ul class="nav-links" style="display: flex; align-items: center;">
+            <li><a href="index.html">Home</a></li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropdown-toggle">Services <i class="fas fa-chevron-down dropdown-arrow"></i></a>
+                <ul class="dropdown-menu">
+                    <li><a href="services.html">All Services</a></li>
+                    <li><a href="academic.html">Academic & Research Advisory</a></li>
+                    <li><a href="corporate.html">Corporate & Business Analytics</a></li>
+                    <li><a href="me_analytics.html">Monitoring, Evaluation & Development Analytics</a></li>
+                    <li><a href="training.html">Software Training & Professional Capacity Building</a></li>
+                </ul>
+            </li>
+            <li><a href="executive-team.html" style="color: #ffffff; font-weight: 600; text-decoration: none;">Executive Team</a></li>
+            <li><a href="https://mail.google.com/mail/?view=cm&fs=1&to=sacom.consultants@gmail.com&su=Inquiry%20for%20SACOM" target="_blank" class="btn-contact" style="background-color: #38bdf8; color: #0f172a; padding: 8px 18px; border-radius: 5px; font-weight: 600; text-decoration: none;">Contact Us</a></li>
+            
+            <!-- THEME TOGGLE BUTTON -->
+            <li>
+                <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme">
+                    <i class="fas fa-sun" id="theme-icon"></i>
+                </button>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- MAIN ABOUT CONTENT SECTION -->
+    <main class="about-container">
+        <div class="about-content-card">
+            <h1 class="about-title">About SACOM</h1>
+            <div class="title-underline"></div>
+            
+            <p class="about-text">
+               SACOM (Statistical Analytics Consultants of Malawi) was established by a team of dedicated, forward-thinking statisticians driven by a shared vision: to bridge the gap between raw numerical data and high-impact strategic execution. Founded on the firm belief that evidence-based solutions should sit at the heart of every successful organization and academic endeavor, SACOM provides comprehensive, high-precision analytics and statistical consulting tailored for corporate enterprises, development organizations, non-governmental bodies, small businesses and academic institutions.
+             </p>
+            
+            <p class="about-text">
+             Our core strength lies in our ability to translate complex, messy and large-scale data into clear, reliable and decision-ready intelligence. By merging deep statistical theory with cutting-edge analytical tools, we assist companies in optimizing internal workflows, uncovering hidden market opportunities, forecasting demand and mitigating strategic risks. Whether through custom Power BI performance dashboards, automated sales reporting or comprehensive Monitoring and Evaluation (M&E) framework designs, we empower leaders to make confident, data-driven choices that accelerate growth and sustainability.
+             </p>
+
+             <p class="about-text">Additionally, to our corporate analytics division, SACOM is deeply committed to academic excellence and capacity building across Malawi and beyond. We offer end-to-end guidance for undergraduate and postgraduate students, scholars and independent researchers working on dissertations and industrial reports. Our academic support spans the entire research lifecycle, including proposal development, research objective formulation, sample size calculations, questionnaire design, quantitative data cleaning, complex hypothesis testing and empirical result interpretation.
+                Recognizing the growing demand for practical data literacy in the modern workforce, SACOM also operates specialized training programs for individuals, university candidates and corporate teams. We offer hands-on, practical instruction in essential software tools, ranging from foundational and advanced Microsoft Excel (financial modeling, formulas, pivot tables) to specialized statistical software packages including SPSS, R among others. From fundamental descriptive statistics to advanced predictive modeling, multivariate regression and time-series forecasting, SACOM stands as a complete, end-to-end consulting firm dedicated to unlocking the true power of data. 
+            </p>
+            <a href="index.html" class="btn-primary" style="display: inline-block; margin-top: 25px;">Back to Home</a>
+        </div>
+    </main>
+
+    <!-- FOOTER SECTION -->
+    <footer style="background-color: #0f172a; border-top: 1px solid #1e293b; padding: 30px 20px; text-align: center; position: relative;">
+        <p style="color: #94a3b8; font-size: 0.85rem; margin: 0;">
+            &copy; <span id="current-year">2026</span> SACOM - Statistical Analytics Consultants of Malawi. All rights reserved.
+        </p>
+    </footer>
+
+    <!-- FLOATING BACK-TO-TOP BUTTON -->
+    <a href="#top" id="backToTop" class="back-to-top" aria-label="Back to Top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- External JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

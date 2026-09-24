@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitoring, Evaluation & Development Analytics - SACOM Analytics</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* MAIN CONTENT THEME VARIABLES (Excludes Navbar & Footer) */
+        :root {
+            --bg-main: #f8fafc;
+            --bg-card: #ffffff;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --border-color: #e2e8f0;
+            --accent-color: #0284c7;
+        }
+
+        [data-theme="dark"] {
+            --bg-main: #0f172a;
+            --bg-card: #1e293b;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --border-color: #334155;
+            --accent-color: #38bdf8;
+        }
+
+        /* Prevent horizontal scroll & apply dynamic theme to main body canvas */
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-main) !important;
+            color: var(--text-primary) !important;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .services-container {
+            max-width: 1000px;
+            margin: 0 auto 60px auto;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .service-card {
+            background-color: var(--bg-card);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            box-sizing: border-box;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .service-card h3 {
+            color: var(--accent-color) !important;
+        }
+
+        .service-card p {
+            color: var(--text-secondary) !important;
+        }
+
+        /* THEME TOGGLE BUTTON STYLES (Styled to match original dark navbar) */
+        .theme-toggle-btn {
+            background: transparent;
+            border: 1px solid #334155;
+            color: #ffffff;
+            padding: 8px 14px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 10px;
+        }
+
+        .theme-toggle-btn:hover {
+            border-color: #38bdf8;
+            color: #38bdf8;
+        }
+
+        /* MOBILE RESPONSIVE RULES (Screens <= 768px) */
+        @media screen and (max-width: 768px) {
+            .navbar {
+                padding: 10px 15px !important;
+                flex-direction: column !important;
+                gap: 12px !important;
+                position: relative !important;
+            }
+
+            .nav-links {
+                flex-wrap: wrap !important;
+                justify-content: center !important;
+                gap: 12px !important;
+                font-size: 0.85rem !important;
+            }
+
+            .services-hero {
+                padding-top: 40px !important;
+                padding-left: 15px !important;
+                padding-right: 15px !important;
+            }
+
+            .services-hero h1 {
+                font-size: 1.6rem !important;
+            }
+
+            .services-container {
+                padding: 0 15px !important;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr !important; /* Force single column on mobile */
+                gap: 20px !important;
+            }
+
+            .service-card {
+                padding: 20px !important;
+                width: 100% !important;
+            }
+
+            .service-card p {
+                font-size: 0.9rem !important;
+                line-height: 1.5 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION HEADER (Locked to original dark background & white text) -->
+    <nav class="navbar" style="position: fixed; top: 0; width: 100%; background-color: rgba(15, 23, 42, 0.95); z-index: 1000;">
+        <a href="index.html" class="logo">
+            <img src="SACOM1.png" alt="SACOM Analytics Logo" class="logo-img">
+        </a>
+        <ul class="nav-links" style="display: flex; align-items: center;">
+            <li><a href="index.html">Home</a></li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropdown-toggle">Services <i class="fas fa-chevron-down dropdown-arrow"></i></a>
+                <ul class="dropdown-menu">
+                    <li><a href="services.html">All Services</a></li>
+                    <li><a href="academic.html">Academic & Research Advisory</a></li>
+                    <li><a href="corporate.html">Corporate & Business Analytics</a></li>
+                    <li><a href="me_analytics.html">Monitoring, Evaluation & Development Analytics</a></li>
+                    <li><a href="training.html">Software Training & Professional Capacity Building</a></li>
+                </ul>
+            </li>
+            <li><a href="executive-team.html" style="color: #ffffff; font-weight: 600; text-decoration: none;">Executive Team</a></li>
+            <li><a href="https://mail.google.com/mail/?view=cm&fs=1&to=sacom.consultants@gmail.com&su=Inquiry%20for%20SACOM" target="_blank" class="btn-contact" style="background-color: #38bdf8; color: #0f172a; padding: 8px 18px; border-radius: 5px; font-weight: 600; text-decoration: none;">Contact Us</a></li>
+            
+            <!-- THEME TOGGLE BUTTON -->
+            <li>
+                <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme">
+                    <i class="fas fa-sun" id="theme-icon"></i>
+                </button>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- PAGE HERO SECTION -->
+    <section class="services-hero" style="padding-top: 140px; text-align: center; max-width: 1000px; margin: 0 auto; padding-left: 20px; padding-right: 20px;">
+        <h1 style="color: var(--text-primary); font-size: 2.2rem; font-weight: 700; margin-bottom: 15px;">Monitoring, Evaluation & Development Analytics (M&E)</h1>
+        <div style="width: 60px; height: 3px; background-color: #f59e0b; margin: 0 auto 25px auto;"></div>
+        <p style="color: var(--text-secondary); font-size: 1.05rem; line-height: 1.7; text-align: justify; margin-bottom: 30px;">
+            SACOM’s Monitoring, Evaluation & Development Analytics division provides comprehensive, methodologically sound M&E frameworks and quantitative field evaluation solutions for non-governmental organizations (NGOs), civil society groups, international development partners, and public sector institutions. Led by qualified statisticians and research methodologists, we ensure that social interventions, public health projects, and community development programs are built upon verifiable, data-driven evidence.
+        </p>
+    </section>
+
+    <!-- DETAILED SERVICES LIST SECTION -->
+    <section class="services-container">
+        <h2 style="color: var(--text-primary); font-size: 1.5rem; margin-bottom: 30px; text-align: center;">Our Core Services Across the M&E and Social Development Lifecycle</h2>
+        
+        <div class="services-grid">
+            
+            <!-- Service 1 -->
+            <div class="service-card">
+                <h3 style="font-size: 1.2rem; margin-bottom: 12px;"><i class="fas fa-bullseye" style="margin-right: 10px;"></i>M&E Framework Design & Indicator Tracking</h3>
+                <p style="font-size: 0.95rem; line-height: 1.6;">
+                    We design robust, customized Monitoring & Evaluation systems tailored to project logic models and Theory of Change (ToC) frameworks. We define clear baseline indicators, output metrics, outcome measures, and long-term impact targets, establishing systematic tracking matrices to monitor progress across all project implementation phases.
+                </p>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="service-card">
+                <h3 style="font-size: 1.2rem; margin-bottom: 12px;"><i class="fas fa-clipboard-check" style="margin-right: 10px;"></i>Baseline, Midterm & Endline Evaluations</h3>
+                <p style="font-size: 0.95rem; line-height: 1.6;">
+                    SACOM conducts independent, rigorous quantitative evaluations to assess program relevance, operational efficiency, effectiveness, sustainability, and overall social impact. Our team handles complete evaluation protocols—from designing statistically representative sampling strategies to synthesizing complex field findings into actionable, policy-relevant reports.
+                </p>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="service-card">
+                <h3 style="font-size: 1.2rem; margin-bottom: 12px;"><i class="fas fa-mobile-screen-button" style="margin-right: 10px;"></i>Digital Survey Programming & Mobile Data Collection Setup</h3>
+                <p style="font-size: 0.95rem; line-height: 1.6;">
+                    To guarantee data integrity and eliminate transcription errors in field operations, we program, configure, and deploy digital survey instruments onto mobile platforms, including KoboToolbox, ODK (Open Data Kit), and CSPro. We integrate advanced skip logic, validation rules, geographic location tagging (GPS), and real-time field data synchronization for seamless remote monitoring.
+                </p>
+            </div>
+
+            <!-- Service 4 -->
+            <div class="service-card">
+                <h3 style="font-size: 1.2rem; margin-bottom: 12px;"><i class="fas fa-list-check" style="margin-right: 10px;"></i>Field Survey Operations & Quantitative Data Management</h3>
+                <p style="font-size: 0.95rem; line-height: 1.6;">
+                    We manage full-scale quantitative data collection activities, overseeing enumerator training, field pre-testing, data quality assurance audits, and back-checking procedures. Collected data is cleaned, structured, and processed through automated validation scripts to produce secure, analysis-ready datasets.
+                </p>
+            </div>
+
+            <!-- Service 5 -->
+            <div class="service-card">
+                <h3 style="font-size: 1.2rem; margin-bottom: 12px;"><i class="fas fa-sliders" style="margin-right: 10px;"></i>Quantitative Impact Evaluation & Econometric Analysis</h3>
+                <p style="font-size: 0.95rem; line-height: 1.6;">
+                    Beyond tracking basic performance indicators, we apply rigorous counterfactual methodologies and econometric modeling—such as Difference-in-Differences (DiD), Propensity Score Matching (PSM), and regression discontinuity designs using R, Stata, SPSS, and Python—to measure the true net impact of development interventions on beneficiary populations.
+                </p>
+            </div>
+
+            <!-- Service 6 -->
+            <div class="service-card">
+                <h3 style="font-size: 1.2rem; margin-bottom: 12px;"><i class="fas fa-chart-column" style="margin-right: 10px;"></i>Interactive M&E Dashboards & Policy Reporting</h3>
+                <p style="font-size: 0.95rem; line-height: 1.6;">
+                    We convert complex project tracking data into automated, visual Power BI and Excel dashboards to give program managers and donors real-time visibility into project indicators. All evaluation reports, executive summaries, and mathematical annexes are professionally formatted and compiled in LaTeX to meet international donor standards.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER SECTION (Locked to original dark background) -->
+    <footer style="background-color: #0f172a; border-top: 1px solid #1e293b; padding: 30px 20px; text-align: center;">
+        <p style="color: #94a3b8; font-size: 0.85rem; margin: 0;">
+            &copy; <span id="current-year">2026</span> SACOM - Statistical Analytics Consultants of Malawi. All rights reserved.
+        </p>
+    </footer>
+
+    <!-- FLOATING BACK-TO-TOP BUTTON -->
+    <a href="#top" id="backToTop" class="back-to-top" aria-label="Back to Top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+
+    <!-- External JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
